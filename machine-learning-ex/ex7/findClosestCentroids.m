@@ -21,7 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+for i = 1:length(idx)
+	mindist = realmax();
+	for k = 1:K
+		d = norm(X(i,:) - centroids(k,:));
+		if (d < mindist)
+			mindist = d;
+			idx(i) = k;
+		end
+	end
+end
 
 
 
